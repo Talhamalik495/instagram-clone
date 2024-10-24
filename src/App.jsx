@@ -3,25 +3,18 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Outlet } from "react-router";
+import { FaHouse } from "react-icons/fa6";
+import { CiSearch } from "react-icons/ci";
+import { MdOutlineExplore } from "react-icons/md";
+import SideBar from "./components/SideBar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div>
-      <div className="w-[260px] h-full bg-black border-r-2 border-white-200 fixed">
-        <h1>Instagram</h1>
-        <div>
-          <h1>Home</h1>
-          <h1>Search</h1>
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-          <h1></h1>
-        </div>
+      <div>
+        <SideBar />
       </div>
       <div className="w-full bg-black p-96">
         <Outlet />

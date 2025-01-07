@@ -1,4 +1,5 @@
 import React from "react";
+import { images } from "../../lib/post";
 
 function Profile() {
   return (
@@ -34,7 +35,15 @@ function Profile() {
         <p className="ml-56">New</p>
       </div>
 
-      
+      <div className="flex flex-wrap justify-center gap-2">
+        {images.map((image) => {
+          return (
+            <div key={image.id} className="w-[297px] h-[297px]">
+              <img src={image.url} alt="" className="w-full h-full" />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

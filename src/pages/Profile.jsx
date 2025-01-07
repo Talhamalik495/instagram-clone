@@ -28,13 +28,26 @@ function Profile() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col  mt-12 bg-red-600">
-        <div className="w-24 h-24 border-2 border-gray-300 flex  items-center bg-[#363636] rounded-full mx-48">
+      <div className="flex flex-col  mt-12 mb-20">
+        <div className="w-24 h-24 border-2 border-gray-300 flex  items-center  bg-[#363636] rounded-full mx-48">
           <div className="w-20 h-20 bg-[#363636] rounded-full"></div>
         </div>
         <p className="ml-56">New</p>
       </div>
-
+      <div className="flex justify-center gap-20 pt-4 pb-4 border-t-2 border-[#262626]">
+        <div>
+          <p>Posts</p>
+        </div>
+        <div>
+          <p>Reels</p>
+        </div>
+        <div>
+          <p>Saved</p>
+        </div>
+        <div>
+          <p>Taged</p>
+        </div>
+      </div>
       <div className="flex flex-wrap justify-center gap-2">
         {images.map((image) => {
           return (

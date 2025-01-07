@@ -27,13 +27,14 @@ function Profile() {
           </div>
         </div>
       </div>
-      <div className="w-full h-full flex ">
-        <p className="text-white">new</p>
-
-        <div className="w-24 h-24 border-2 border-white flex  items-center bg-[#363636] rounded-full mx-48">
+      <div className="flex flex-col  mt-12 bg-red-600">
+        <div className="w-24 h-24 border-2 border-gray-300 flex  items-center bg-[#363636] rounded-full mx-48">
           <div className="w-20 h-20 bg-[#363636] rounded-full"></div>
         </div>
+        <p className="ml-56">New</p>
       </div>
+
+      
     </div>
   );
 }

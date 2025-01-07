@@ -54,7 +54,7 @@ function Profile() {
             <div key={image.id} className="w-[297px] h-[297px]">
               <img src={image.url} alt="" className="w-full h-full" />
             </div>
-          );
+          )
         })}
       </div>
     </div>

@@ -10,6 +10,8 @@ import SideBar from "./components/SideBar";
 import Layout from "./pages/Layout";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import Explorer from "./pages/Explorer";
+import Reels from "./pages/Reels";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/profile" element={<Profile />} />
+          <Route path="/explorer" element={<Explorer />} />
+          <Route path="/reels" element={<Reels />} />
         </Route>
       </Routes>
     </BrowserRouter>

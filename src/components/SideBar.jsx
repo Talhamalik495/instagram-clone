@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 function SideBar() {
+  let [post, setPost] = useState(false);
+  console.log(post);
+
   return (
     <div className="h-full w-full bg-black px-4 flex flex-col justify-center gap-10">
       <div className="pt-8 px-2">
@@ -29,7 +32,14 @@ function SideBar() {
       <div className="flex flex-col gap-2 text-white">
         <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
           {" "}
-          <Link to={"/"} className="flex gap-2 items-center">
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-white font-bold flex gap-2 items-center active-class"
+                : "flex gap-2 items-center"
+            }
+          >
             <span>
               <svg
                 aria-label="Home"
@@ -51,8 +61,9 @@ function SideBar() {
               </svg>
             </span>
             <span>Home</span>
-          </Link>
+          </NavLink>
         </h1>
+
         <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
           {" "}
           <span>
@@ -89,106 +100,124 @@ function SideBar() {
           </span>
           <span> Search</span>
         </h1>
-        <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:hover:bg-[#262626] cursor-pointer">
-          {" "}
-          <span>
-            <svg
-              aria-label="Explore"
-              class="x1lliihq x1n2onr6 x5n08af"
-              fill="currentColor"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <title>Explore</title>
-              <polygon
-                fill="none"
-                points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              ></polygon>
-              <polygon
-                fill-rule="evenodd"
-                points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"
-              ></polygon>
-              <circle
-                cx="12.001"
-                cy="12.005"
-                fill="none"
-                r="10.5"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              ></circle>
-            </svg>
-          </span>
-          <span> Explorer</span>
-        </h1>
-        <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
-          {" "}
-          <span>
-            <svg
-              aria-label="Reels"
-              class="x1lliihq x1n2onr6 x5n08af"
-              fill="currentColor"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <title>Reels</title>
-              <line
-                fill="none"
-                stroke="currentColor"
-                stroke-linejoin="round"
-                stroke-width="2"
-                x1="2.049"
-                x2="21.95"
-                y1="7.002"
-                y2="7.002"
-              ></line>
-              <line
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                x1="13.504"
-                x2="16.362"
-                y1="2.001"
-                y2="7.002"
-              ></line>
-              <line
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                x1="7.207"
-                x2="10.002"
-                y1="2.11"
-                y2="7.002"
-              ></line>
-              <path
-                d="M2 12.001v3.449c0 2.849.698 4.006 1.606 4.945.94.908 2.098 1.607 4.946 1.607h6.896c2.848 0 4.006-.699 4.946-1.607.908-.939 1.606-2.096 1.606-4.945V8.552c0-2.848-.698-4.006-1.606-4.945C19.454 2.699 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.546 2 5.704 2 8.552Z"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              ></path>
-              <path
-                d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z"
-                fill-rule="evenodd"
-              ></path>
-            </svg>
-          </span>
-          <span> Reels</span>
-        </h1>
+        <NavLink
+          to={"/explorer"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-white font-bold flex gap-2 items-center active-class"
+              : "flex gap-2 items-center"
+          }
+        >
+          <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:hover:bg-[#262626] cursor-pointer">
+            {" "}
+            <span>
+              <svg
+                aria-label="Explore"
+                class="x1lliihq x1n2onr6 x5n08af"
+                fill="currentColor"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <title>Explore</title>
+                <polygon
+                  fill="none"
+                  points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></polygon>
+                <polygon
+                  fill-rule="evenodd"
+                  points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"
+                ></polygon>
+                <circle
+                  cx="12.001"
+                  cy="12.005"
+                  fill="none"
+                  r="10.5"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></circle>
+              </svg>
+            </span>
+            <span> Explorer</span>
+          </h1>
+        </NavLink>
+        <NavLink
+          to={"/reels"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-white font-bold flex gap-2 items-center active-class"
+              : "flex gap-2 items-center"
+          }
+        >
+          <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
+            {" "}
+            <span>
+              <svg
+                aria-label="Reels"
+                class="x1lliihq x1n2onr6 x5n08af"
+                fill="currentColor"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <title>Reels</title>
+                <line
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  x1="2.049"
+                  x2="21.95"
+                  y1="7.002"
+                  y2="7.002"
+                ></line>
+                <line
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  x1="13.504"
+                  x2="16.362"
+                  y1="2.001"
+                  y2="7.002"
+                ></line>
+                <line
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  x1="7.207"
+                  x2="10.002"
+                  y1="2.11"
+                  y2="7.002"
+                ></line>
+                <path
+                  d="M2 12.001v3.449c0 2.849.698 4.006 1.606 4.945.94.908 2.098 1.607 4.946 1.607h6.896c2.848 0 4.006-.699 4.946-1.607.908-.939 1.606-2.096 1.606-4.945V8.552c0-2.848-.698-4.006-1.606-4.945C19.454 2.699 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.546 2 5.704 2 8.552Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+                <path
+                  d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+            <span> Reels</span>
+          </h1>
+        </NavLink>
         <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
           {" "}
           <span>
@@ -235,7 +264,10 @@ function SideBar() {
           </span>
           <span> Notification</span>
         </h1>
-        <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
+        <h1
+          className="w-56 flex  justify-normal items-center gap-2 py-3  px-2  rounded-lg relative  hover:bg-[#262626] cursor-pointer"
+          onClick={() => setPost(true)}
+        >
           {" "}
           <span>
             <svg
@@ -282,7 +314,65 @@ function SideBar() {
           </span>
           <span> Create</span>
         </h1>
-        <NavLink to={"/profile"}>
+        <div>
+          {post ? (
+            <div className="max-w-52 min-w-56   max-h-24 min-h-20 absolute top-[80%] left-4 rounded-md bg-[#262626] flex flex-col justify-center gap-2">
+              <div
+                className="flex justify-between px-4  w-full py-2 rounded-md hover:bg-gray-500"
+                onClick={() => setPost(false)}
+              >
+                <p>Post</p>
+                <svg
+                  aria-label="Post"
+                  class="x1lliihq x1n2onr6 x5n08af"
+                  fill="currentColor"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <title>Post</title>
+                  <path d="m18.509 14.757-4.285-2.474a.857.857 0 0 0-1.286.743v4.948a.857.857 0 0 0 1.286.742l4.285-2.474a.857.857 0 0 0 0-1.485ZM5.225 3.977a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25ZM19.5 7.5h-3v-3a4.004 4.004 0 0 0-4-4h-8a4.004 4.004 0 0 0-4 4v8a4.004 4.004 0 0 0 4 4h3v3a4.004 4.004 0 0 0 4 4h8a4.004 4.004 0 0 0 4-4v-8a4.004 4.004 0 0 0-4-4Zm-12 7h-3a1.997 1.997 0 0 1-1.882-1.349l2.607-2.607L7.5 12.819Zm.23-4.28L6.41 8.9a1.679 1.679 0 0 0-2.37 0L2.5 10.44V4.5a2.003 2.003 0 0 1 2-2h8a2.003 2.003 0 0 1 2 2v3h-3a3.992 3.992 0 0 0-3.77 2.72ZM21.5 19.5a2.003 2.003 0 0 1-2 2h-8a2.003 2.003 0 0 1-2-2v-8a2.003 2.003 0 0 1 2-2h8a2.003 2.003 0 0 1 2 2Z"></path>
+                </svg>
+              </div>
+              <div className="flex justify-between px-4 py-2 hover:bg-gray-500 rounded-md">
+                <p>Ai Characters</p>
+                <svg
+                  aria-label="AI character"
+                  class="x1lliihq x1n2onr6 x5n08af"
+                  fill="currentColor"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <title>AI character</title>
+                  <path
+                    clip-rule="evenodd"
+                    d="M3 17a4 4 0 1 0 8 0 4 4 0 0 0-8 0Zm4 2a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM3 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0Zm4 2a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm6 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Zm4 2a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  ></path>
+                  <path
+                    d="M16.441 10.627a.618.618 0 0 0 1.136 0l.817-1.903a.617.617 0 0 1 .324-.323l1.908-.815a.616.616 0 0 0 0-1.133l-1.908-.815a.617.617 0 0 1-.324-.324l-.834-1.94a.618.618 0 0 0-1.13-.013l-.896 1.966a.617.617 0 0 1-.314.309l-1.851.812a.615.615 0 0 0 .005 1.13l1.925.823a.616.616 0 0 1 .325.323l.817 1.903Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+
+        <NavLink
+          to={"/profile"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-white font-bold flex gap-2 items-center active-class"
+              : "flex gap-2 items-center"
+          }
+        >
           <h1 className="w-56 flex  justify-normal items-center gap-3 py-3  px-2  rounded-lg  hover:bg-[#262626] cursor-pointer">
             {" "}
             <span className="w-7 h-7 rounded-full bg-white"></span>

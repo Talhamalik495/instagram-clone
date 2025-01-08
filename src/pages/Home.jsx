@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { posts } from "../../lib/post";
-import image from "../assets/i.png";
+
 function Home() {
   return (
     <div className="flex flex-col justify-center items-center">

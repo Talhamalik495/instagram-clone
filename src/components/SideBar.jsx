@@ -10,15 +10,26 @@ function SideBar() {
   let handleOpen = () => {
     setModalOpen(true);
   };
-  let handleClose = () => {
-    setModalOpen(false);
+  // let handleClose = () => {
+  //   setModalOpen(false);
+  // };
+  const handleOutsideClick = (e) => {
+    console.log(e.target.value);
+
+    // Check if the click is outside the modal content
+    if (e.target.classList.contains("modal-overlay")) {
+      setModalOpen(false);
+    }
   };
   console.log(post);
 
   return (
     <div className="h-full w-full bg-black px-4 flex flex-col justify-center gap-10">
       {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div
+          onClick={handleOutsideClick}
+          className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
           <div className="bg-[#262626]  rounded-lg  w-[400px] h-[420px] text-white">
             <div
               className="w-full h-10 flex justify-center items-center bg-black rounded-t-lg"

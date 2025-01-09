@@ -88,7 +88,7 @@ function SideBar() {
                 <input
                   onChange={(e) => {
                     let file = e.target.files[0];
-                    const url = URL.createObjectURL(file);
+                    const url = URL.createObjectURL(file)
                     setImage(url);
                   }}
                   id="file-upload"
